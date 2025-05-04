@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  color: #000000;
 }
 
 .content {
@@ -71,4 +72,18 @@ footer {
 footer img {
   width: 90px;
   height: auto;
+}
+
+/* Dark theme styles */
+.dark {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark h2 {
+  color: #4ea6ea;
+}
+
+.dark hr {
+  border-top: 1px solid #444;
 }
