@@ -1,0 +1,5 @@
+<!-- we should go from small(mobile first) to big in a media querie-->
+<!-- reset the css -->
+<!-- A community maintained stylesheet/ normalize to fix the inconsitencies between browsers -->
+<!-- cdnjs- content delivery network/ link the https to nornalize  -->
+<!-- sty;e should always be at the bottom -->
