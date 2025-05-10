@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: "Mooli", sans-serif;
+}
+
+body {
+  background-color: rgb(237, 237, 237);
+  margin: 0; /* ✅ Removes default body margin */
+}
+
+header {
+  font-family: var(--primary-font);
+  font-size: 1.2em;
+  display: grid;
+  color: var(--text-light);
+  justify-content: center;
+  text-align: center;
+  height: fit-content;
+  background-color: var(--primary-color);
+  position: relative;
+  z-index: 10; /* ✅ Keeps header above images */
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Optional: give main padding to avoid overlap with header */
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--secondary-font);
+  padding-top: 10px; /* ✅ Prevents content from hiding behind header */
+}
+
+h1 {
+ font-family: var(--secondary-font);
+  color: var(--text-light);
+  font-size: 40px;
+}
+p{
+  font-size: 20px;
+  text-align: center;
+  font-weight: 900;
+  font-family: var(--secondary-font);}
+
+a:link,
+a:visited {
+  color: var(--accent-color);
+}
+
+.gallery img {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border: 5px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+footer{
+height: 90px;
+background-color: var(--primary-color)}
+
+
+@media screen and (min-width: 700px){
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--secondary-font);
+}
+.gallery{
+ display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    }
+header a {
+  display: none;
+}
+/* button{
+display: none;} */
+}
+
+
+@media screen and (min-width: 1000px){
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--secondary-font);
+}
+.gallery{
+ display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    }
+header {
+  display: flex;
+  flex-direction: column; /* stack title and nav */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 20px;
+}
+}
+
