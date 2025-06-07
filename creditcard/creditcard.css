@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,300');
+
+body {
+  background-color: beige;
+  font-family: 'Lato', sans-serif;
+}
+
+#form-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+#card-front,
+#card-back {
+  height: 250px;
+  width: 400px;
+  max-width: 100%;
+  border: 2px solid black;
+  border-radius: 5%;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+#card-front {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background-color: rgb(187, 20, 20);
+  margin-top: 10px;
+  color: white;
+}
+
+#card-back {
+  grid-column: 2 / span 3;
+  grid-row: 2 / span 3;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: rgb(187, 20, 20);
+  text-align: right;
+  color: white;
+}
+
+#card-stripe {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+  background-color: black;
+  grid-column: 1 / span 2;
+}
+
+#amount {
+  text-align: right;
+}
+
+#cvc-container {
+  margin-top: 130px;
+}
+
+#card-cvc {
+  width: 60px;
+}
+
+#card-year,
+#card-month {
+  width: 25%;
+}
+
+#card-number,
+#card-holder {
+  width: 90%;
+  height: 20px;
+}
+
+p {
+  font-size: 10px;
+}
+
