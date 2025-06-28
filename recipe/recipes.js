@@ -278,4 +278,91 @@ const recipes = [
 		recipeYield: '12 servings',
 		rating: 4
 	}
-]
+];
+
+function getRandomInt(num) {
+    return Math.floor(Math.random() * num);
+  }
+  
+  // Return a random recipe from the array
+  function getRandomRecipe(recipes) {
+    const index = getRandomInt(recipes.length);
+    return recipes[index];
+  }
+  
+  // Generate the HTML for the star rating
+  function ratingTemplate(rating) {
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+      stars += i <= Math.floor(rating) ? '<span>⭐</span>' : '<span>☆</span>';
+    }
+    return `<div class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">${stars}</div>`;
+  }
+  
+  // Generate the HTML for tags
+  function tagsTemplate(tags) {
+    return (tags || [])
+      .map(tag => `<button class="tag" data-tag="${tag}">${tag}</button>`)
+      .join('');
+  }
+  
+  // Generate the full HTML for one recipe
+  function recipeTemplate(recipe) {
+    return `
+      <div class="recipe-card">
+        <img src="${recipe.image}" alt="${recipe.name}" />
+        <div class="recipe-details">
+          <div class="tags">
+            ${tagsTemplate(recipe.tags)}
+          </div>
+          <h2>${recipe.name}</h2>
+          ${ratingTemplate(recipe.rating || 0)}
+          <p>${recipe.description || 'No description available.'}</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  // Render a list of recipes
+  function renderRecipes(recipeList) {
+    const recipeSection = document.querySelector('main');
+    if (!recipeSection) return;
+  
+    if (recipeList.length === 0) {
+      recipeSection.innerHTML = `<p>No recipes found.</p>`;
+    } else {
+      recipeSection.innerHTML = recipeList.map(recipeTemplate).join('');
+    }
+  }
+  
+  // Search recipes by name or ingredient
+  function handleSearch() {
+    const query = document.querySelector('.search-box')?.value.toLowerCase() || '';
+    const filtered = recipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(query) ||
+      recipe.recipeIngredient?.some(ing => ing.toLowerCase().includes(query))
+    );
+    renderRecipes(filtered);
+  }
+  
+  // Filter recipes by tag
+  function handleTagClick(event) {
+    if (event.target.classList.contains('tag')) {
+      const tag = event.target.dataset.tag.toLowerCase();
+      const filtered = recipes.filter(recipe =>
+        recipe.tags?.some(t => t.toLowerCase() === tag)
+      );
+      renderRecipes(filtered);
+    }
+  }
+  
+  // Initial setup
+  function init() {
+    renderRecipes([getRandomRecipe(recipes)]);
+  
+    document.querySelector('.search-button')?.addEventListener('click', handleSearch);
+  
+    document.querySelector('main')?.addEventListener('click', handleTagClick);
+  }
+  
+  window.addEventListener('DOMContentLoaded', init);

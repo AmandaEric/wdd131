@@ -149,7 +149,7 @@ footer {
   height: 30px;
 }
 
-/* ✅ Media query: STACK layout on small screens */
+
 @media (max-width: 1000px) {
   .recipe-card {
     flex-direction: column;
